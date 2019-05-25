@@ -1,11 +1,10 @@
 function solve(n, operations) {
-  const jars = Array(n).fill(0);
-  for (let i = 0; i < operations.length; i++) {
-    const [indexOne, indexTwo, value] = operations[i];
-    for (let j = indexOne - 1; j < indexTwo; j++) {
-      jars[j] = jars[j] += value;
-    }
+  let candies = 0;
+
+  for (const row of operations) {
+    const [start, stop, value] = operations;
+    candies += (stop - start + 1) * value;
   }
-  const sum = jars.reduce((acc, val) => acc + val, 0);
-  return Math.floor(sum / n);
+
+  return Math.floor(candies / n);
 }
