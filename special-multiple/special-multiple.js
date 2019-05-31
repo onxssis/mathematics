@@ -1,13 +1,25 @@
 function solve(n) {
-  const multiples = generateSeries();
+  //   const multiples = generateSeries();
   let ans;
+  let i = 1;
 
-  for (let i = 0; i < multiples.length; i++) {
-    if (multiples[i] % n === 0) {
-      ans = multiples[i];
+  while (i < Infinity) {
+    let bin = i.toString(2) * 9;
+
+    if (parseInt(bin) % n == 0) {
+      ans = bin;
       break;
+    } else {
+      i++;
     }
   }
+
+  //   for (let i = 0; i < multiples.length; i++) {
+  //     if (multiples[i] % n === 0) {
+  //       ans = multiples[i];
+  //       break;
+  //     }
+  //   }
 
   return ans;
 }
